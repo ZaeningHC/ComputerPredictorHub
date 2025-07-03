@@ -1,0 +1,98 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  
+  <h2 class="text-3xl font-semibold mb-6 text-indigo-700">Stored Prediction Results</h2>
+
+  <div *ngIf="isLoading" class="mb-4 text-center text-gray-600">Loading...</div>
+
+  <div class="mb-6 flex flex-wrap gap-3 items-center">
+    <label for="sessionId" class="font-medium text-gray-700">Filter by Session ID:</label>
+    <input id="sessionId" [(ngModel)]="sessionIdFilter" placeholder="Enter Session ID" class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
+    <button (click)="applyFilter()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Apply Filter</button>
+    <button *ngIf="sessionIdFilter" (click)="clearFilter()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 transition">Clear Filter</button>
+  </div>
+
+  <table *ngIf="results.length" class="min-w-full border-collapse border border-gray-300 shadow-sm">
+    <thead class="bg-indigo-100 text-gray-700">
+      <tr>
+        <th class="border border-gray-300 px-3 py-2 text-left">ID</th>
+        <th class="border border-gray-300 px-3 py-2 text-left">Session ID</th>
+        <th class="border border-gray-300 px-3 py-2 text-left">Seq #</th>
+        <th class="border border-gray-300 px-3 py-2 text-left">Target</th>
+        <th class="border border-gray-300 px-3 py-2 text-left">Features</th>
+        <th class="border border-gray-300 px-3 py-2 text-left">Answer</th>
+        <th class="border border-gray-300 px-3 py-2 text-left">C# Prediction</th>
+        <th class="border border-gray-300 px-3 py-2 text-left">Python Prediction</th>
+        <th class="border border-gray-300 px-3 py-2 text-left">Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let result of results">
+        <tr class="hover:bg-indigo-50">
+          <td class="border border-gray-300 px-1 py-1">{{ result.id }}</td>
+          <td class="border border-gray-300 px-1 py-1">{{ result.sessionId }}</td>
+          <td class="border border-gray-300 px-1 py-1">{{ result.sequenceNumber }}</td>
+          <td class="border border-gray-300 px-1 py-1">{{ result.target }}</td>
+          <td class="border border-gray-300 px-1 py-1">
+            <button (click)="toggleFeatures(result.id)" class="text-indigo-600 hover:underline focus:outline-none">
+              {{ isExpanded(result.id) ? 'Hide Features' : 'Show Features' }}
+            </button>
+          </td>
+          <td class="border border-gray-300 px-1 py-1">{{ result.answer }}</td>
+          <td class="border border-gray-300 px-1 py-1">{{ result.csharpPrediction }}</td>
+          <td class="border border-gray-300 px-1 py-1">{{ result.pythonPrediction }}</td>
+          <td class="border border-gray-300 px-1 py-1">{{ result.createdAt | date:'short' }}</td>
+        </tr>
+        <tr *ngIf="isExpanded(result.id)">
+          <td colspan="9" class="bg-gray-50 p-4">
+            <table class="w-full border-collapse border border-gray-200">
+              <tbody>
+                <tr *ngFor="let key of getFeatureKeys(result.features, result.target)" class="odd:bg-white even:bg-gray-100">
+                  <td class="border border-gray-200 px-3 py-1 font-semibold w-1/3">{{ key }}</td>
+                  <td class="border border-gray-200 px-3 py-1">{{ getFeatureValue(result.features, key) }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+  <div *ngIf="!results.length && !isLoading" class="text-center text-gray-500 mt-10">
+    No results found.
+  </div>
+
+  <div class="flex justify-between items-center w-full mt-6">
+
+    <div class="flex items-center space-x-4">
+      <button 
+        (click)="prevPage()" 
+        [disabled]="page === 0" 
+        class="px-4 py-2 rounded bg-indigo-600 text-white disabled:bg-gray-400"
+      >
+        Previous
+      </button>
+
+      <span>Page {{ page + 1 }} of {{ totalPages }} (Total: {{ totalElements }})</span>
+
+      <button 
+        (click)="nextPage()" 
+        [disabled]="page + 1 >= totalPages" 
+        class="px-4 py-2 rounded bg-indigo-600 text-white disabled:bg-gray-400"
+      >
+        Next
+      </button>
+    </div>
+
+    <div>
+      <button 
+        (click)="goToLastPage()" 
+        [disabled]="page + 1 >= totalPages" 
+        class="px-4 py-2 rounded bg-indigo-600 text-white disabled:bg-gray-400"
+      >
+        Last Page
+      </button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,97 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+  <h2 class="text-3xl font-semibold mb-6 text-indigo-700">
+    Prediction engine
+  </h2>
+
+  <div class="flex flex-wrap items-start gap-4 mb-6">
+    <input
+      type="file"
+      (change)="onFileSelected($event)"
+      accept=".json"
+      class="border border-gray-300 rounded px-3 py-2 
+             focus:outline-none focus:ring-2 focus:ring-indigo-500 
+             w-full sm:w-auto"
+    />
+
+    <button
+      (click)="startPredictionEngines()"
+      [disabled]="!testCases.length || isPredicting || isSaving || dataSaved"
+      class="bg-indigo-600 text-white px-5 py-2 rounded 
+             hover:bg-indigo-700 transition disabled:bg-gray-400"
+    >
+      {{ isPredicting ? 'Running...' : 'Start prediction engines' }}
+    </button>
+  </div>
+
+  <table
+    *ngIf="results.length"
+    class="min-w-full border-collapse border border-gray-300 shadow-sm"
+  >
+    <thead class="bg-indigo-100 text-gray-700">
+      <tr>
+        <th class="border border-gray-300 px-3 py-2 text-left">Target</th>
+        <th class="border border-gray-300 px-3 py-2 text-left">Features</th>
+        <th class="border border-gray-300 px-3 py-2 text-left">Correct Answer</th>
+        <th class="border border-gray-300 px-3 py-2 text-left">C# Prediction</th>
+        <th class="border border-gray-300 px-3 py-2 text-left">Python Prediction</th>
+        <th class="border border-gray-300 px-3 py-2 text-left">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let result of results">
+        <tr class="hover:bg-indigo-50">
+          <td class="border border-gray-300 px-2 py-1">{{ result.testCase.target }}</td>
+          <td class="border border-gray-300 px-2 py-1">
+            <button
+              (click)="result.showFeatures = !result.showFeatures"
+              class="text-indigo-600 hover:underline focus:outline-none"
+            >
+              {{ result.showFeatures ? 'Hide Features' : 'Show Features' }}
+            </button>
+          </td>
+          <td class="border border-gray-300 px-2 py-1">{{ result.testCase.answer }}</td>
+          <td class="border border-gray-300 px-2 py-1">{{ result.csharpPrediction ?? '-' }}</td>
+          <td class="border border-gray-300 px-2 py-1">{{ result.pythonPrediction ?? '-' }}</td>
+          <td class="border border-gray-300 px-2 py-1">
+            <span *ngIf="!result.csharpError && !result.pythonError">OK</span>
+            <span *ngIf="result.csharpError || result.pythonError" class="text-red-600">
+              C#: {{ result.csharpError }} Python: {{ result.pythonError }}
+            </span>
+          </td>
+        </tr>
+        <tr *ngIf="result.showFeatures">
+          <td colspan="6" class="bg-gray-50 p-4">
+            <table class="w-full border-collapse border border-gray-200">
+              <tbody>
+                <tr
+                  *ngFor="let key of getFeatureKeys(result.testCase.features)"
+                  class="odd:bg-white even:bg-gray-100"
+                >
+                  <td class="border border-gray-200 px-3 py-1 font-semibold w-1/3">
+                    {{ key }}
+                  </td>
+                  <td class="border border-gray-200 px-3 py-1">
+                    {{ result.testCase.features[key] }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+  <div class="mt-4">
+    <button
+      (click)="saveResults()"
+      [disabled]="!results.length || isSaving || isPredicting || dataSaved"
+      class="bg-indigo-600 text-white px-5 py-2 rounded 
+             hover:bg-indigo-700 transition disabled:bg-gray-400"
+    >
+      {{ isSaving ? 'Saving...' : 'Save Results' }}
+    </button>
+  </div>
+
+</div>
