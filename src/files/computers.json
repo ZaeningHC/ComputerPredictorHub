@@ -1,0 +1,314 @@
+[
+  {
+    "target": "cpu_cores",
+    "features": {
+      "cpu_speed_ghz": 4.1,
+      "ram_gb": "8",
+      "storage_type": "Hybrid",
+      "storage_gb": "1000",
+      "operating_system": "Linux",
+      "target_use_case": "Gaming",
+      "price_usd": 1785
+    },
+    "answer": 8
+  },
+  {
+    "target": "price_usd",
+    "features": {
+      "cpu_cores": 6,
+      "cpu_speed_ghz": 3.05,
+      "ram_gb": "16",
+      "storage_type": "SSD",
+      "storage_gb": "512",
+      "operating_system": "Windows",
+      "target_use_case": "Business"
+    },
+    "answer": 1245
+  },
+  {
+    "target": "storage_type",
+    "features": {
+      "cpu_cores": 4,
+      "cpu_speed_ghz": 2.5,
+      "ram_gb": "8",
+      "storage_gb": "256",
+      "operating_system": "Linux",
+      "target_use_case": "Family",
+      "price_usd": 755
+    },
+    "answer": "HDD"
+  },
+  {
+    "target": "operating_system",
+    "features": {
+      "cpu_cores": 8,
+      "cpu_speed_ghz": 3.8,
+      "ram_gb": "64",
+      "storage_type": "Hybrid",
+      "storage_gb": "1000",
+      "target_use_case": "Workstation",
+      "price_usd": 2125
+    },
+    "answer": "Linux"
+  },
+  {
+    "target": "target_use_case",
+    "features": {
+      "cpu_cores": 2,
+      "cpu_speed_ghz": 2.25,
+      "ram_gb": "4",
+      "storage_type": "SSD",
+      "storage_gb": "128",
+      "operating_system": "Chrome OS",
+      "price_usd": 635
+    },
+    "answer": "Family"
+  },
+  {
+    "target": "cpu_cores",
+    "features": {
+      "cpu_speed_ghz": 3.95,
+      "ram_gb": "32",
+      "storage_type": "SSD",
+      "storage_gb": "1000",
+      "operating_system": "Linux",
+      "target_use_case": "Gaming",
+      "price_usd": 1805
+    },
+    "answer": 8
+  },
+  {
+    "target": "price_usd",
+    "features": {
+      "cpu_cores": 2,
+      "cpu_speed_ghz": 2.5,
+      "ram_gb": "8",
+      "storage_type": "HDD",
+      "storage_gb": "128",
+      "operating_system": "Windows",
+      "target_use_case": "Family"
+    },
+    "answer": 700
+  },
+  {
+    "target": "storage_type",
+    "features": {
+      "cpu_cores": 6,
+      "cpu_speed_ghz": 3.35,
+      "ram_gb": "16",
+      "storage_gb": "512",
+      "operating_system": "MacOS",
+      "target_use_case": "Business",
+      "price_usd": 1200
+    },
+    "answer": "SSD"
+  },
+  {
+    "target": "operating_system",
+    "features": {
+      "cpu_cores": 4,
+      "cpu_speed_ghz": 2.7,
+      "ram_gb": "8",
+      "storage_type": "HDD",
+      "storage_gb": "256",
+      "target_use_case": "Family",
+      "price_usd": 770
+    },
+    "answer": "Linux"
+  },
+  {
+    "target": "target_use_case",
+    "features": {
+      "cpu_cores": 8,
+      "cpu_speed_ghz": 3.95,
+      "ram_gb": "32",
+      "storage_type": "SSD",
+      "storage_gb": "512",
+      "operating_system": "Windows",
+      "price_usd": 1610
+    },
+    "answer": "Gaming"
+  },
+  {
+    "target": "cpu_cores",
+    "features": {
+      "cpu_speed_ghz": 4.15,
+      "ram_gb": "64",
+      "storage_type": "SSD",
+      "storage_gb": "1000",
+      "operating_system": "Linux",
+      "target_use_case": "Workstation",
+      "price_usd": 2185
+    },
+    "answer": 8
+  },
+  {
+    "target": "price_usd",
+    "features": {
+      "cpu_cores": 6,
+      "cpu_speed_ghz": 3.2,
+      "ram_gb": "16",
+      "storage_type": "Hybrid",
+      "storage_gb": "512",
+      "operating_system": "Linux",
+      "target_use_case": "Business"
+    },
+    "answer": 1240
+  },
+  {
+    "target": "cpu_cores",
+    "features": {
+      "cpu_speed_ghz": 3.8,
+      "ram_gb": "16",
+      "storage_type": "SSD",
+      "storage_gb": "256",
+      "operating_system": "Windows",
+      "target_use_case": "Business",
+      "price_usd": 1350
+    },
+    "answer": 6
+  },
+  {
+    "target": "price_usd",
+    "features": {
+      "cpu_cores": 4,
+      "cpu_speed_ghz": 2.9,
+      "ram_gb": "8",
+      "storage_type": "HDD",
+      "storage_gb": "512",
+      "operating_system": "Linux",
+      "target_use_case": "Family"
+    },
+    "answer": 850
+  },
+  {
+    "target": "storage_type",
+    "features": {
+      "cpu_cores": 8,
+      "cpu_speed_ghz": 4.0,
+      "ram_gb": "32",
+      "storage_gb": "1000",
+      "operating_system": "MacOS",
+      "target_use_case": "Gaming",
+      "price_usd": 1950
+    },
+    "answer": "Hybrid"
+  },
+  {
+    "target": "operating_system",
+    "features": {
+      "cpu_cores": 2,
+      "cpu_speed_ghz": 2.4,
+      "ram_gb": "4",
+      "storage_type": "SSD",
+      "storage_gb": "128",
+      "target_use_case": "Family",
+      "price_usd": 620
+    },
+    "answer": "Chrome OS"
+  },
+  {
+    "target": "target_use_case",
+    "features": {
+      "cpu_cores": 6,
+      "cpu_speed_ghz": 3.6,
+      "ram_gb": "16",
+      "storage_type": "SSD",
+      "storage_gb": "512",
+      "operating_system": "Windows",
+      "price_usd": 1400
+    },
+    "answer": "Business"
+  },
+  {
+    "target": "cpu_cores",
+    "features": {
+      "cpu_speed_ghz": 3.5,
+      "ram_gb": "8",
+      "storage_type": "HDD",
+      "storage_gb": "256",
+      "operating_system": "Linux",
+      "target_use_case": "Family",
+      "price_usd": 790
+    },
+    "answer": 4
+  },
+  {
+    "target": "price_usd",
+    "features": {
+      "cpu_cores": 8,
+      "cpu_speed_ghz": 4.2,
+      "ram_gb": "64",
+      "storage_type": "SSD",
+      "storage_gb": "1000",
+      "operating_system": "Linux",
+      "target_use_case": "Workstation"
+    },
+    "answer": 2200
+  },
+  {
+    "target": "storage_type",
+    "features": {
+      "cpu_cores": 4,
+      "cpu_speed_ghz": 2.6,
+      "ram_gb": "8",
+      "storage_gb": "512",
+      "operating_system": "Windows",
+      "target_use_case": "Gaming",
+      "price_usd": 1300
+    },
+    "answer": "SSD"
+  },
+  {
+    "target": "operating_system",
+    "features": {
+      "cpu_cores": 6,
+      "cpu_speed_ghz": 3.1,
+      "ram_gb": "32",
+      "storage_type": "Hybrid",
+      "storage_gb": "512",
+      "target_use_case": "Workstation",
+      "price_usd": 1600
+    },
+    "answer": "Linux"
+  },
+  {
+    "target": "target_use_case",
+    "features": {
+      "cpu_cores": 4,
+      "cpu_speed_ghz": 2.8,
+      "ram_gb": "16",
+      "storage_type": "SSD",
+      "storage_gb": "256",
+      "operating_system": "Windows",
+      "price_usd": 1100
+    },
+    "answer": "Business"
+  },
+  {
+    "target": "price_usd",
+    "features": {
+      "cpu_cores": 2,
+      "cpu_speed_ghz": 2.3,
+      "ram_gb": "4",
+      "storage_type": "HDD",
+      "storage_gb": "128",
+      "operating_system": "Linux",
+      "target_use_case": "Family"
+    },
+    "answer": 600
+  },
+  {
+    "target": "cpu_cores",
+    "features": {
+      "cpu_speed_ghz": 3.7,
+      "ram_gb": "16",
+      "storage_type": "SSD",
+      "storage_gb": "512",
+      "operating_system": "MacOS",
+      "target_use_case": "Gaming",
+      "price_usd": 1450
+    },
+    "answer": 6
+  }
+]
